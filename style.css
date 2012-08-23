@@ -1,0 +1,19 @@
+/*
+Theme Name: Twitstrap
+Theme URI: https://github.com/Gremlyn/wp-twitstrap
+Author: Colin Burton, Assay Depot Inc.
+Author URI: http://www.assaydepot.com
+Description: Highly customisable theme that uses Twitter Bootstrap.
+Version: 0.0
+
+License: None Yet, Do Not Use!
+License URI:
+
+The bulk of the CSS is taken from the Twitter Bootstrap code. This
+file holds only general layout items and overrides to the default
+Twitter Bootstrap style.
+*/
+
+body {
+    padding: 40px 0 0;
+}
