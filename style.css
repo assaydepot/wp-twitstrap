@@ -13,6 +13,3 @@ The bulk of the CSS is taken from the Twitter Bootstrap code. This
 file holds only general layout items and overrides to the default
 Twitter Bootstrap style.
 */
-body {
-    padding: 30px 0 0;
-}
