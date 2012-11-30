@@ -89,13 +89,13 @@ function twitstrap_get_global_options() {
 
     // collect option names as declared in twitstrap_get_settings()
     $twitstrap_option_names = array (
-                                       'twitstrap_settings_general',
-                                       'twitstrap_settings_main_page',
-                                       'twitstrap_settings_footer',
-                                       'twitstrap_settings_blog_page',
-                                       'twitstrap_settings_posts',
-                                       'twitstrap_settings_sidebar'
-                                       );
+                                     'twitstrap_settings_general',
+                                     'twitstrap_settings_main_page',
+                                     'twitstrap_settings_footer',
+                                     'twitstrap_settings_blog_page',
+                                     'twitstrap_settings_posts',
+                                     'twitstrap_settings_sidebar'
+                                     );
 
     // loop for get_option
     foreach ($twitstrap_option_names as $twitstrap_option_name) {
@@ -210,11 +210,11 @@ function twitstrap_get_settings() {
     }
 
     // put together the output array
-    $output['twitstrap_option_name']     = $twitstrap_option_name;
-    $output['twitstrap_page_title']      = $twitstrap_settings_page_title;
-    $output['twitstrap_page_tabs']       = $twitstrap_page_tabs;
-    $output['twitstrap_page_sections']   = $twitstrap_page_sections;
-    $output['twitstrap_page_fields']     = $twitstrap_page_fields;
+    $output['twitstrap_option_name']   = (isset($twitstrap_option_name) ? $twitstrap_option_name : '');
+    $output['twitstrap_page_title']    = (isset($twitstrap_settings_page_title) ? $twitstrap_settings_page_title : '');
+    $output['twitstrap_page_tabs']     = (isset($twitstrap_page_tabs) ? $twitstrap_page_tabs : '');
+    $output['twitstrap_page_sections'] = (isset($twitstrap_page_sections) ? $twitstrap_page_sections : '');
+    $output['twitstrap_page_fields']   = (isset($twitstrap_page_fields) ? $twitstrap_page_fields : '');
 
     return $output;
 }
@@ -585,13 +585,15 @@ function twitstrap_show_msg($message, $msgclass = 'info') {
 }
 
 function twitstrap_admin_msgs() {
+    $page = (isset($_GET['page']) ? $_GET['page'] : '');
+
     // check for our settings page - need this in conditional further down
-    $twitstrap_settings_pg = strpos($_GET['page'], TWITSTRAP_PAGE_BASENAME);
+    $twitstrap_settings_pg = strpos($page, TWITSTRAP_PAGE_BASENAME);
 
     // collect setting errors/notices: //http://codex.wordpress.org/Function_Reference/get_settings_errors
     $set_errors = get_settings_errors();
 
-    //display admin message only for the admin to see, only on our settings page and only when setting errors/notices are returned!	
+    //display admin message only for the admin to see, only on our settings page and only when setting errors/notices are returned!
     if (current_user_can('manage_options') && $twitstrap_settings_pg !== FALSE && !empty($set_errors)) {
 
         // have our settings succesfully been updated?
@@ -735,7 +737,11 @@ function twitstrap_get_admin_page() {
     global $pagenow;
 
     // read the current page
-    $current_page = trim($_GET['page']);
+    if (isset($_GET['page'])) {
+        $current_page = trim($_GET['page']);
+    } else {
+        $current_page = '';
+    }
 
     // use a different way to read the current page name when the form submits
     if ($pagenow == 'options.php') {
@@ -765,6 +771,8 @@ function twitstrap_default_tab() {
      */
     if ($current_page == TWITSTRAP_PAGE_BASENAME) {
         $default_tab = 'general';
+    } else {
+        $default_tab = '';
     }
 
     return $default_tab;
