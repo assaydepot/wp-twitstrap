@@ -43,7 +43,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <div class="row">
           <div class="span4">
             <h2>
-              <a href="<?php the_permalink(); ?>" title="<?php the_title(); ?>">
+              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                 <?php the_title(); ?>
               </a>
             </h2>
@@ -102,8 +102,6 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
   <?php } ?>
 </div>
 <?php } ?>
-
-<?php /*get_sidebar();*/ ?>
 
 <?php get_footer(); ?>
 
