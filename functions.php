@@ -23,7 +23,7 @@ add_action('init', 'register_navmenus');
 function register_navmenus() {
     register_nav_menus(array(
                              'header_nav' => __('Header Menu'),
-                             'inpage_nav' => __('Primary Menu'),
+                             'inpage_nav' => __('In-Page Menu'),
                              'footer_nav' => __('Footer Menu')
                              )
                        );
@@ -34,21 +34,21 @@ function register_navmenus() {
                      'menu-item-title' => 'Home' );
 
     // Check if menus exists, make them if not
-    if (!is_nav_menu('header_nav')) {
+    if (!is_nav_menu('Header Menu')) {
         $menu_id = wp_create_nav_menu('Header Menu');
         foreach ($menus as $menu) {
             wp_update_nav_menu_item($menu_id, $menu);
         }
     }
 
-    if (!is_nav_menu('inpage_nav')) {
-        $menu_id = wp_create_nav_menu('Primary Menu');
+    if (!is_nav_menu('In-Page Menu')) {
+        $menu_id = wp_create_nav_menu('In-Page Menu');
         foreach ($menus as $menu) {
             wp_update_nav_menu_item($menu_id, 0, $menu);
         }
     }
 
-    if (!is_nav_menu('foot_nav')) {
+    if (!is_nav_menu('Footer Menu')) {
         $menu_id = wp_create_nav_menu('Footer Menu');
         foreach ($menus as $menu) {
             wp_update_nav_menu_item($menu_id, 0, $menu);
@@ -61,7 +61,7 @@ show_admin_bar( false );
 /**
  * Create external php file to handle dynamic CSS
  * Reference: http://goo.gl/5PvVC
- */
+ *
 add_filter('query_vars', 'new_wp_var');
 function new_wp_var() {
     //custom_css is the query string variable to reference in later calls
@@ -76,7 +76,7 @@ function custom_css_display() {
         include_once (TEMPLATEPATH . '/style.php');
         exit; //to stop WP from loading further
     }
-}
+    }*/
 
 /**
  * Option Page Stuff

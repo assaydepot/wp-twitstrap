@@ -17,21 +17,8 @@
         <div class="navbar-inner">
             <?php $args = array(
                       'theme_location'  => 'header_nav',
-                      'menu'            => 'header_nav',
-                      'container'       => false,
-                      'container_class' => '',
-                      'container_id'    => '',
                       'menu_class'      => 'nav nav-collapse pull-right',
-                      'menu_id'         => 'header_nav',
-                      'echo'            => true,
-                      'fallback_cb'     => 'wp_page_menu',
-                      'before'          => '',
-                      'after'           => '',
-                      'link_before'     => '',
-                      'link_after'      => '',
-                      'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                      'depth'           => 0,
-                      'walker'          => ''
+                      'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
             ); ?>
             <?php wp_nav_menu( $args ); ?>
         </div>
@@ -55,21 +42,9 @@
             <div class="navbar-inner">
                 <?php $args = array(
                           'theme_location'  => 'inpage_nav',
-                          'menu'            => 'inpage_nav',
-                          'container'       => false,
-                          'container_class' => '',
-                          'container_id'    => '',
                           'menu_class'      => 'nav',
-                          'menu_id'         => 'inpage_nav',
-                          'echo'            => true,
-                          'fallback_cb'     => 'wp_page_menu',
-                          'before'          => '',
                           'after'           => '<li class="divider-vertical"></li>',
-                          'link_before'     => '',
-                          'link_after'      => '',
                           'items_wrap'      => '<ul id="%1$s" class="%2$s">%3$s</ul>',
-                          'depth'           => 0,
-                          'walker'          => ''
                 ); ?>
                 <?php wp_nav_menu( $args ); ?>
             </div>
