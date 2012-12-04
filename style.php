@@ -24,13 +24,11 @@ h6 {
     display: inline;
 }
 
+<?php if (!empty($twitstrap_options['twitstrap_menu_color_1']) && !empty($twitstrap_options['twitstrap_menu_color_2'])) { ?>
 .navbar-inner {
-    <?php
-    if (!empty($twitstrap_options['twitstrap_menu_color_1']) && !empty($twitstrap_options['twitstrap_menu_color_2'])) {
-        echo 'background-image: -moz-linear-gradient(center top, '.$twitstrap_options['twitstrap_menu_color_1'].', '.$twitstrap_options['twitstrap_menu_color_2'].') !important;';
-    }
-    ?>
+    <?php echo 'background-image: -moz-linear-gradient(center top, '.$twitstrap_options['twitstrap_menu_color_1'].', '.$twitstrap_options['twitstrap_menu_color_2'].') !important;'; ?>
 }
+<?php } ?>
 
 .twitstrap_footer {
     text-align: center;
