@@ -40,7 +40,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 
     while ( have_posts() ) : the_post(); ?>
         <div class="row">
-          <div class="span4">
+          <div class="<?php echo $excerpt_span ?>">
             <h2>
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                 <?php the_title(); ?>
