@@ -39,6 +39,12 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
             </p>
           </div>
         </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
+            <br />
+            <?php the_tags('<h6>Tags: ', ', ', '</h6>'); ?>
+          </div>
+        </div>
     <?php endwhile; ?>
       </div>
 
@@ -50,6 +56,14 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
     </div>
     <div class="row">
       <div class="span12">
+        <?php
+        $big = 999999999;
+        echo paginate_links(array('base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                                  'format' => '?paged=%#%',
+                                  'current' => max( 1, get_query_var('paged') ),
+                                  'total' => $wp_query->max_num_pages
+                                  ));
+        ?>
         <hr />
       </div>
     </div>

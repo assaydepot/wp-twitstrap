@@ -67,13 +67,19 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
             <span class="label label-info">Posted <?php the_time(); ?>, <?php the_date(); ?></span>&nbsp;
             <span class="label label-info">Author: <?php the_author(); ?></span>
             <span class="pull-right">
-              <?php the_category(', '); ?>
+            <h6><?php the_category(', '); ?></h6>
             </span>
           </div>
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <hr>
+            <br />
+            <?php the_tags('<h6>Tags: ', ', ', '</h6>'); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
+            <hr />
           </div>
         </div>
     <?php $i++; ?>
@@ -85,6 +91,19 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <?php get_sidebar(); ?>
       </div>
     <?php } ?>
+    </div>
+    <div class="row">
+      <div class="span12">
+        <?php
+        $big = 999999999;
+        echo paginate_links(array('base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+                                  'format' => '?paged=%#%',
+                                  'current' => max( 1, get_query_var('paged') ),
+                                  'total' => $wp_query->max_num_pages
+                                  ));
+        ?>
+        <hr />
+      </div>
     </div>
 
   <?php } else { ?>

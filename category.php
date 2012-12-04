@@ -39,6 +39,13 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
+            <p>
+              <?php the_excerpt(); ?>
+            </p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
             <span class="label label-info">Posted <?php the_time(); ?>, <?php the_date(); ?></span>&nbsp;
             <span class="label label-info">Author: <?php the_author(); ?></span>
             <span class="pull-right">
@@ -48,9 +55,13 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <p>
-              <?php the_excerpt(); ?>
-            </p>
+            <br />
+            <?php the_tags('<h6>Tags: ', ', ', '</h6>'); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
+            <hr>
           </div>
         </div>
     <?php endwhile; ?>
