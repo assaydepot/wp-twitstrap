@@ -22,7 +22,7 @@ function twitstrap_options_page_sections() {
         case 'general':
             $sections = array();
             $sections['general_section'] = __('General Twitstrap Settings', 'twitstrap');
-            $sections['style_section']   = __('Twitstrap Style Settings', 'twitstrap');
+            $sections['style_section']   = __('Twitstrap Style Tweaks', 'twitstrap');
             break;
 
         case 'main_page':
@@ -97,7 +97,7 @@ function twitstrap_options_page_fields() {
                                "title"   => __( 'Background Color', 'twitstrap' ),
                                "desc"    => __( 'Enter a HEX value.', 'twitstrap' ),
                                "type"    => "hex-text",
-                               "std"     => __('#FFFFFF','twitstrap'),
+                               "std"     => __('','twitstrap'),
                                "class"   => "hexval"
                                );
             $options[] = array(
@@ -106,7 +106,7 @@ function twitstrap_options_page_fields() {
                                "title"   => __( 'Header/In-Page Menu Top Color', 'twitstrap' ),
                                "desc"    => __( 'Enter a HEX value.', 'twitstrap' ),
                                "type"    => "hex-text",
-                               "std"     => __('#FFFFFF','twitstrap'),
+                               "std"     => __('','twitstrap'),
                                "class"   => "hexval"
                                );
             $options[] = array(
@@ -115,7 +115,7 @@ function twitstrap_options_page_fields() {
                                "title"   => __( 'Header/In-Page Menu Bottom Color', 'twitstrap' ),
                                "desc"    => __( 'Enter a HEX value.', 'twitstrap' ),
                                "type"    => "hex-text",
-                               "std"     => __('#F2F2F2','twitstrap'),
+                               "std"     => __('','twitstrap'),
                                "class"   => "hexval"
                                );
             $options[] = array(
@@ -124,7 +124,7 @@ function twitstrap_options_page_fields() {
                                "title"   => __( 'Font Color', 'twitstrap' ),
                                "desc"    => __( 'Enter a HEX value.', 'twitstrap' ),
                                "type"    => "hex-text",
-                               "std"     => __('#333333','twitstrap'),
+                               "std"     => __('','twitstrap'),
                                "class"   => "hexval"
                                );
             break;

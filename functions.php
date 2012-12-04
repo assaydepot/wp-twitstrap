@@ -336,8 +336,10 @@ function twitstrap_validate_options($input) {
                     case 'hexval':
                         //accept the input only if it is a HEX value
                         $input[$option['id']] = ltrim($input[$option['id']], "#");
-                        if ( strtolower($input[$option['id']]) == dechex(hexdec($input[$option['id']])) ) {
+                        if (strtolower($input[$option['id']]) == dechex(hexdec($input[$option['id']])) ) {
                             $valid_input[$option['id']] = "#" . strtoupper($input[$option['id']]);
+                        } elseif (empty($input[$option['id']])) {
+                            $valid_input[$option['id']] = '';
                         } else {
                             add_settings_error(
                                                $option['id'], // setting title

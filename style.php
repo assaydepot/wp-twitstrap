@@ -10,8 +10,14 @@ $twitstrap_options = twitstrap_get_global_options();
 
 body {
     padding: 30px 0 0;
-    background-color: <?php echo $twitstrap_options['twitstrap_background_color']; ?> !important;
-    color: <?php echo $twitstrap_options['twitstrap_font_color']; ?> !important;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_background_color'])) {
+        echo 'background-color: '.$twitstrap_options['twitstrap_background_color'].' !important;';
+    }
+    if (!empty($twitstrap_options['twitstrap_font_color'])) {
+        echo 'color: '.$twitstrap_options['twitstrap_font_color'].' !important;';
+    }
+    ?>
 }
 
 h6 {
@@ -19,27 +25,47 @@ h6 {
 }
 
 .navbar-inner {
-    background-image: -moz-linear-gradient(center top , <?php echo $twitstrap_options['twitstrap_menu_color_1']; ?>, <?php echo $twitstrap_options['twitstrap_menu_color_2']; ?>) !important;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_menu_color_1']) && !empty($twitstrap_options['twitstrap_menu_color_2'])) {
+        echo 'background-image: -moz-linear-gradient(center top, '.$twitstrap_options['twitstrap_menu_color_1'].', '.$twitstrap_options['twitstrap_menu_color_2'].') !important;';
+    }
+    ?>
 }
 
 .twitstrap_footer {
     text-align: center;
-    background-color: <?php echo $twitstrap_options['twitstrap_footer_background_color']; ?>;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_footer_background_color'])) {
+        echo 'background-color: '.$twitstrap_options['twitstrap_footer_background_color'].';';
+    }
+    ?>
 }
 
 .twitstrap_footer_section_1 {
     padding: 5px;
-    text-align: <?php echo $twitstrap_options['twitstrap_footer_1_align']; ?> !important;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_footer_1_align'])) {
+        echo 'text-align: '.$twitstrap_options['twitstrap_footer_1_align'].' !important;';
+    }
+    ?>
 }
 
 .twitstrap_footer_section_2 {
     padding: 5px;
-    text-align: <?php echo $twitstrap_options['twitstrap_footer_2_align']; ?>;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_footer_1_align'])) {
+        echo 'text-align: '.$twitstrap_options['twitstrap_footer_2_align'].' !important;';
+    }
+    ?>
 }
 
 .twitstrap_footer_section_3 {
     padding: 5px;
-    text-align: <?php echo $twitstrap_options['twitstrap_footer_3_align']; ?>;
+    <?php
+    if (!empty($twitstrap_options['twitstrap_footer_1_align'])) {
+        echo 'text-align: '.$twitstrap_options['twitstrap_footer_3_align'].' !important;';
+    }
+    ?>
 }
 
 .widget-area {
