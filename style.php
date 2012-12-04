@@ -1,5 +1,10 @@
 <?php
 header("Content-type: text/css");
+$current_url = dirname(__FILE__);
+$wp_content_pos = strpos($current_url, 'wp-content');
+$wp_content = substr($current_url, 0, $wp_content_pos);
+require_once($wp_content . 'wp-load.php');
+
 $twitstrap_options = twitstrap_get_global_options();
 ?>
 
@@ -7,6 +12,10 @@ body {
     padding: 30px 0 0;
     background-color: <?php echo $twitstrap_options['twitstrap_background_color']; ?> !important;
     color: <?php echo $twitstrap_options['twitstrap_font_color']; ?> !important;
+}
+
+h6 {
+    display: inline;
 }
 
 .navbar-inner {
@@ -43,12 +52,12 @@ body {
     list-style-type: none;
 }
 
-.widget-area li h2 {
+.widget h2 {
     font-size: 16px;
     line-height: 18px;
 }
 
-.widget-area li ul li{
+.widget ul li{
     margin-bottom: 0px;
     list-style-type: disc;
 }

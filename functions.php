@@ -59,26 +59,6 @@ function register_navmenus() {
 show_admin_bar( false );
 
 /**
- * Create external php file to handle dynamic CSS
- * Reference: http://goo.gl/5PvVC
- *
-add_filter('query_vars', 'new_wp_var');
-function new_wp_var() {
-    //custom_css is the query string variable to reference in later calls
-    $public_query_vars[] = 'custom_css';
-    return $public_query_vars;
-}
-
-add_action('template_redirect', 'custom_css_display');
-function custom_css_display() {
-    $css = get_query_var('custom_css');
-    if ($css == 'true') {
-        include_once (TEMPLATEPATH . '/style.php');
-        exit; //to stop WP from loading further
-    }
-    }*/
-
-/**
  * Option Page Stuff
  */
 add_action('admin_menu', 'twitstrap_add_menu');
