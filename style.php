@@ -30,7 +30,7 @@ h6 {
 }
 <?php } ?>
 
-.twitstrap_footer {
+footer {
     text-align: center;
     <?php
     if (!empty($twitstrap_options['twitstrap_footer_background_color'])) {
@@ -109,4 +109,8 @@ li.widget {
 
 #prev {
     text-align: left !important;
+}
+
+.badge a {
+    color: #FFFFFF;
 }

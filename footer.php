@@ -20,10 +20,11 @@ $args = array(
               'walker'          => ''
               );
 ?>
-<div class="container twitstrap_footer">
-  <div class="row-fluid">
-  <?php if ($twitstrap_options['twitstrap_footer_toggle'] == 1) { ?>
 
+<?php if ($twitstrap_options['twitstrap_footer_toggle'] == 1) { ?>
+<footer>
+  <div class="container twitstrap_footer">
+    <div class="row-fluid">
     <?php if ($twitstrap_options['twitstrap_footer_1_toggle'] == 1) { ?>
       <div class="span4 twitstrap_footer_section_1">
       <?php if ( !dynamic_sidebar(2) ) : ?>
@@ -51,9 +52,12 @@ $args = array(
       </div>
     <?php } ?>
 
-  <?php } ?>
+    </div>
   </div>
-</div>
+</footer>
+<?php } ?>
+
 <?php wp_footer(); ?>
+
 </body>
 </html>

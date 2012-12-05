@@ -34,11 +34,14 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <span class="label label-info">Posted <?php the_time(); ?>, <?php the_date(); ?></span>&nbsp;
-            <span class="label label-info">Author: <?php the_author(); ?></span>
+            <h6>
+              Posted <?php the_time(); ?>, <?php the_date(); ?><br />
+              Author: <?php the_author(); ?>
+            </h6>
             <span class="pull-right">
               <?php the_category(', '); ?>
             </span>
+            <hr style="margin: 8px 0 0;"/>
           </div>
         </div>
         <div class="row">

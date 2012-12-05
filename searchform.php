@@ -4,7 +4,7 @@
   <fieldset>
     <div>
       <input type="text" value="<?php echo $search_query; ?>" name="s" id="s" class="input-medium search-query" placeholder="Enter search terms..." />
-      <button type="submit" class="btn btn-info" id="searchsubmit"/>Search</button>
+      <button type="submit" class="btn btn-primary" id="searchsubmit"/>Search</button>
     </div>
   </fieldset>
 </form>

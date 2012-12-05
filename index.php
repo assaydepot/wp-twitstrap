@@ -64,7 +64,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <span class="label label-info">Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></span>&nbsp;
+            <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
             <span class="pull-right">
             <h6><?php the_category(', '); ?></h6>
             </span>
@@ -72,8 +72,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <br />
-            <?php the_tags('<h6>Tags: ', ', ', '</h6>'); ?>
+            <h6>Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></h6>
           </div>
         </div>
         <div class="row">
