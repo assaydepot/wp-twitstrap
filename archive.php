@@ -47,7 +47,6 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
             <span class="label label-info">Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></span>&nbsp;
-            <span class="label label-info">Author: <?php the_author(); ?></span>
             <span class="pull-right">
               <?php the_category(', '); ?>
             </span>

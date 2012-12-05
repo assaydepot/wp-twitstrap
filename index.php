@@ -65,7 +65,6 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
             <span class="label label-info">Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></span>&nbsp;
-            <span class="label label-info">Author: <?php the_author(); ?></span>
             <span class="pull-right">
             <h6><?php the_category(', '); ?></h6>
             </span>
@@ -123,3 +122,5 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 <?php } ?>
 
 <?php get_footer(); ?>
+
+<pre><?php print_r($twitstrap_options);?></pre>
