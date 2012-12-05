@@ -206,15 +206,6 @@ function twitstrap_options_page_fields() {
                                );
             $options[] = array(
                                "section" => "footer_section_1",
-                               "id"      => TWITSTRAP_SHORTNAME . "_footer_1_menu",
-                               "title"   => __( 'Use Footer Menu in Section 1', 'twitstrap' ),
-                               "desc"    => __( 'Use the custom menu (Footer Menu) in this footer section.',
-                                                'twitstrap' ),
-                               "type"    => "checkbox",
-                               "std"     => 1
-                               );
-            $options[] = array(
-                               "section" => "footer_section_1",
                                "id"      => TWITSTRAP_SHORTNAME . "_footer_1_align",
                                "title"   => __( 'Alignment for Footer Section 1', 'twitstrap' ),
                                "desc"    => __( 'Choose from the options in the dropdown.', 'twitstrap' ),
@@ -253,15 +244,6 @@ function twitstrap_options_page_fields() {
                                );
             $options[] = array(
                                "section" => "footer_section_2",
-                               "id"      => TWITSTRAP_SHORTNAME . "_footer_2_menu",
-                               "title"   => __( 'Use Footer Menu in Section 2', 'twitstrap' ),
-                               "desc"    => __( 'Use the custom menu (Footer Menu) in this footer section.',
-                                                'twitstrap' ),
-                               "type"    => "checkbox",
-                               "std"     => 0
-                               );
-            $options[] = array(
-                               "section" => "footer_section_2",
                                "id"      => TWITSTRAP_SHORTNAME . "_footer_2_align",
                                "title"   => __( 'Alignment for Footer Section 2', 'twitstrap' ),
                                "desc"    => __( 'Choose from the options in the dropdown.', 'twitstrap' ),
@@ -297,15 +279,6 @@ function twitstrap_options_page_fields() {
                                                 'twitstrap' ),
                                "type"    => "checkbox",
                                "std"     => 1
-                               );
-            $options[] = array(
-                               "section" => "footer_section_3",
-                               "id"      => TWITSTRAP_SHORTNAME . "_footer_3_menu",
-                               "title"   => __( 'Use Footer Menu in Section 3', 'twitstrap' ),
-                               "desc"    => __( 'Use the custom menu (Footer Menu) in this footer section.',
-                                                'twitstrap' ),
-                               "type"    => "checkbox",
-                               "std"     => 0
                                );
             $options[] = array(
                                "section" => "footer_section_3",

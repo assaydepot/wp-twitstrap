@@ -39,6 +39,12 @@ h6 {
     ?>
 }
 
+.twitstrap_footer h2 {
+    border-bottom: 1px solid #EEEEEE;
+    font-size: 16px;
+    line-height: 18px;
+}
+
 .twitstrap_footer_section_1 {
     padding: 5px;
     <?php
@@ -66,22 +72,23 @@ h6 {
     ?>
 }
 
-.widget-area {
-    font-size: 14px;
-    line-height: 16px;
-}
-
-.widget-area li {
-    margin-bottom: 5px;
+li.widget {
+    margin-bottom: 20px;
     list-style-type: none;
-}
-
-.widget h2 {
-    font-size: 16px;
-    line-height: 18px;
 }
 
 .widget ul li{
     margin-bottom: 0px;
     list-style-type: disc;
+}
+
+.widgettitle {
+    font-size: 16px;
+    line-height: 18px;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.widget-area {
+    font-size: 14px;
+    line-height: 16px;
 }

@@ -14,7 +14,7 @@ define('TWITSTRAP_SHORTNAME', 'twitstrap');
 define('TWITSTRAP_PAGE_BASENAME', 'twitstrap_settings');
 
 require_once('settings.php');
-register_sidebar();
+register_sidebars(4);
 
 /**
  * Register and create the three nav menus that can be used.
@@ -22,9 +22,9 @@ register_sidebar();
 add_action('init', 'register_navmenus');
 function register_navmenus() {
     register_nav_menus(array(
-                             'header_nav' => __('Header Menu'),
-                             'inpage_nav' => __('In-Page Menu'),
-                             'footer_nav' => __('Footer Menu')
+                             'header_nav' => __('Header Menu', 'twitstrap'),
+                             'inpage_nav' => __('In-Page Menu', 'twitstrap'),
+                             'footer_nav' => __('Footer Menu', 'twitstrap')
                              )
                        );
 

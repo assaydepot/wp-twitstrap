@@ -1,5 +1,5 @@
 <div id="secondary" class="widget-area" role="complementary">
-<?php if ( !dynamic_sidebar() ) : ?>
+<?php if ( !dynamic_sidebar(1) ) : ?>
    <aside id="archives" class="widget">
      <h3 class="widget-title"><?php _e( 'Archives', 'twitstrap' ); ?></h3>
      <ul>
@@ -15,5 +15,5 @@
        <?php wp_meta(); ?>
      </ul>
    </aside>
-<?php endif;?>
+<?php endif; ?>
 </div>
