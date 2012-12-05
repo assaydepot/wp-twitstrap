@@ -92,3 +92,21 @@ li.widget {
     font-size: 14px;
     line-height: 16px;
 }
+
+#twitstrap-calendar {
+    margin: 0 auto;
+    width: 85%;
+}
+
+#twitstrap-calendar th,
+#twitstrap-calendar td {
+    text-align: center;
+}
+
+#next {
+    text-align: right !important;
+}
+
+#prev {
+    text-align: left !important;
+}

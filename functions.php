@@ -14,6 +14,7 @@ define('TWITSTRAP_SHORTNAME', 'twitstrap');
 define('TWITSTRAP_PAGE_BASENAME', 'twitstrap_settings');
 
 require_once('settings.php');
+require_once('twitstrap_widgets.php');
 register_sidebars(4);
 
 /**
