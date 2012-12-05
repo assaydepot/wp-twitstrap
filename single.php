@@ -51,6 +51,12 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
             </p>
           </div>
         </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
+            <br />
+            <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
+          </div>
+        </div>
     <?php endwhile; ?>
       </div>
 
@@ -62,7 +68,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
     </div>
     <div class="row">
       <div class="span12">
-        <hr />
+         <hr />
       </div>
     </div>
 
