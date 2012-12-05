@@ -123,5 +123,3 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 <?php } ?>
 
 <?php get_footer(); ?>
-
-<pre><?php print_r($twitstrap_options);?></pre>
