@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title><?php bloginfo('name'); ?> <?php wp_title('|'); ?></title>
+    <title><?php wp_title('|'); ?></title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo get_template_directory_uri(); ?>/style.php" rel="stylesheet" type="text/css" />
     <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
