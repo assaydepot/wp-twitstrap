@@ -91,15 +91,33 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
     <?php } ?>
     </div>
     <div class="row">
-      <div class="span12">
+      <div class="<?php echo $excerpt_span; ?>">
         <?php
+        $paged = get_query_var('paged');
         $big = 999999999;
-        echo paginate_links(array('base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
-                                  'format' => '?paged=%#%',
-                                  'current' => max( 1, get_query_var('paged') ),
-                                  'total' => $wp_query->max_num_pages
-                                  ));
+        $pagination = paginate_links(array('base' => str_replace($big, '%#%', esc_url(get_pagenum_link($big))),
+                                           'format' => '%#%',
+                                           'current' => max(1, $paged),
+                                           'total' => $wp_query->max_num_pages,
+                                           'type' => 'array'
+                                           ));
         ?>
+        <div class="pagination pagination-centered">
+        <ul>
+        <?php
+        foreach ($pagination as $page_number) {
+            $current_page = '<span class="page-numbers current">'.$paged.'</span>';
+            if (strlen($current_page) == strlen($page_number)) {
+                echo '<li class="active">';
+            } else {
+                echo '<li>';
+            }
+            echo $page_number;
+            echo '</li>';
+        }
+        ?>
+        </ul>
+        </div>
         <hr />
       </div>
     </div>
