@@ -53,7 +53,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
           <div class="<?php echo $excerpt_span ?>">
             <p>
               <?php
-              if ($i == 0 && get_query_var('page') <= 1) {
+              if ($i == 0 && get_query_var('paged') <= 1) {
                   the_content();
               } else {
                   the_excerpt();
