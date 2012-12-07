@@ -36,7 +36,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
           <div class="<?php echo $excerpt_span; ?>">
             <h6>
               Posted <?php the_time(); ?>, <?php the_date(); ?><br />
-              Author: <?php the_author(); ?>
+              Author: <?php the_author_link(); ?>
             </h6>
             <span class="pull-right">
               <?php the_category(', '); ?>
