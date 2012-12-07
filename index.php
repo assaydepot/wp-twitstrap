@@ -4,15 +4,15 @@ get_header();
 if ($twitstrap_options['twitstrap_hero_unit_toggle'] == 1) {
 ?>
 <div class="container">
-    <div class="hero-unit">
-        <h1><?php echo $twitstrap_options['twitstrap_hero_unit_h1']; ?></h1>
-        <p><?php echo $twitstrap_options['twitstrap_hero_unit_p']; ?></p>
-        <p>
-            <a class="btn btn-primary btn-large" href="<?php echo $twitstrap_options['twitstrap_hero_unit_button_link']; ?>">
-                <?php echo $twitstrap_options['twitstrap_hero_unit_button_text']; ?>
-            </a>
-        </p>
-    </div>
+  <div class="hero-unit">
+    <h1><?php echo $twitstrap_options['twitstrap_hero_unit_h1']; ?></h1>
+    <p><?php echo $twitstrap_options['twitstrap_hero_unit_p']; ?></p>
+    <p>
+      <a class="btn btn-primary btn-large" href="<?php echo $twitstrap_options['twitstrap_hero_unit_button_link']; ?>">
+        <?php echo $twitstrap_options['twitstrap_hero_unit_button_text']; ?>
+      </a>
+    </p>
+  </div>
 </div>
 <?php } ?>
 
@@ -53,7 +53,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
           <div class="<?php echo $excerpt_span ?>">
             <p>
               <?php
-              if ($i == 0) {
+              if ($i == 0 && get_query_var('page') <= 1) {
                   the_content();
               } else {
                   the_excerpt();
