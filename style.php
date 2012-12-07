@@ -111,6 +111,10 @@ li.widget {
     text-align: left !important;
 }
 
-.badge a {
+.badge a, .btn a {
     color: #FFFFFF;
+}
+
+.children {
+    list-style-type: none;
 }

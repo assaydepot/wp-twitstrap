@@ -57,6 +57,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
             <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
           </div>
         </div>
+        <?php comments_template('', true); ?>
     <?php endwhile; ?>
       </div>
 
