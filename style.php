@@ -111,6 +111,10 @@ li.widget {
     text-align: left !important;
 }
 
+#comments {
+    margin-top: 15px;
+}
+
 .badge a, .btn a {
     color: #FFFFFF;
 }
