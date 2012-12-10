@@ -66,9 +66,10 @@ function twitstrap_comment($comment, $args, $depth) {
         case 'trackback' :
     ?>
     <li class="post pingback">
-      <p>
-        <?php _e('Pingback:', 'twitstrap'); ?> <?php comment_author_link(); ?><?php edit_comment_link(__('Edit', 'twitstrap'), '<span class="edit-link">', '</span>'); ?>
-      </p>
+      <div class="alert alert-info clearfix">
+        <strong><?php _e('Pingback:', 'twitstrap'); ?></strong><br />
+        <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<span class="pull-right"><small>', ' </small><i class="icon-edit"></i></span>' ); ?>
+      </div>
     <?php
             break;
         default :
@@ -97,7 +98,7 @@ function twitstrap_comment($comment, $args, $depth) {
                     ?>
 
                 </div><!-- .comment-author .vcard -->
-                <?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<span class="pull-right">', ' <i class="icon-edit"></i></span>' ); ?>
+                <?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<span class="pull-right"><small>', ' </small><i class="icon-edit"></i></span>' ); ?>
 
                 <?php if ( $comment->comment_approved == '0' ) : ?>
                     <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twitstrap' ); ?></em>
