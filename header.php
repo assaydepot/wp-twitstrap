@@ -6,6 +6,7 @@
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo get_template_directory_uri(); ?>/style.php" rel="stylesheet" type="text/css" />
     <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
+    <script src="<?php echo get_template_directory_uri(); ?>/extra.js"></script>
     <?php wp_head(); ?>
 </head>
 
