@@ -58,6 +58,7 @@ function register_navmenus() {
 }
 
 show_admin_bar( false );
+add_theme_support( 'automatic-feed-links' );
 
 function twitstrap_comment($comment, $args, $depth) {
     $GLOBALS['comment'] = $comment;
