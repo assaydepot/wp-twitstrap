@@ -53,7 +53,16 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <br />
+            <?php wp_link_pages(array('before' => '',
+                                      'next_or_number' => 'next',
+                                      'previouspagelink' => '<span class="pull-left">&laquo; back</span>',
+                                      'nextpagelink' => '<span class="pull-right">continue reading &raquo;</span>',
+                                      'after' => '')); ?>
+            <hr />
+          </div>
+        </div>
+        <div class="row">
+          <div class="<?php echo $excerpt_span; ?>">
             <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
           </div>
         </div>
@@ -66,11 +75,6 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <?php get_sidebar(); ?>
       </div>
     <?php } ?>
-    </div>
-    <div class="row">
-      <div class="span12">
-         <hr />
-      </div>
     </div>
 
   <?php } else { ?>
