@@ -66,11 +66,14 @@ function twitstrap_comment($comment, $args, $depth) {
         case 'pingback' :
         case 'trackback' :
     ?>
-    <li class="post pingback">
-      <div class="alert alert-info clearfix">
-        <strong><?php _e('Pingback:', 'twitstrap'); ?></strong><br />
-        <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<br /><span class="pull-right"><small>', ' </small><i class="icon-edit"></i></span>' ); ?>
-      </div>
+    <li class="post">
+      <small>
+        <div class="alert alert-info pingback clearfix">
+          <strong><?php _e('Pingback:', 'twitstrap'); ?></strong><br />
+          <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<br /><span class="pull-right"><small>', ' </small><i class="icon-edit"></i></span>' ); ?>
+        </div>
+      </small>
+    </li>
     <?php
             break;
         default :
@@ -118,7 +121,8 @@ function twitstrap_comment($comment, $args, $depth) {
               </span>
             </div><!-- .reply -->
             <br />
-        </article><!-- #comment-## -->
+        </article>
+      </li><!-- #comment-## -->
 
     <?php
             break;

@@ -122,3 +122,9 @@ li.widget {
 .children {
     list-style-type: none;
 }
+
+.pingback {
+    margin-bottom: 10px;
+    padding: 5px 10px !important;
+    line-height: 16px !important;
+}
