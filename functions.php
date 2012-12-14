@@ -69,7 +69,7 @@ function twitstrap_comment($comment, $args, $depth) {
     <li class="post">
       <small>
         <div class="alert alert-info pingback clearfix">
-          <strong><?php _e('Pingback:', 'twitstrap'); ?></strong><br />
+          <strong><?php _e('Pingback: ', 'twitstrap'); ?></strong>
           <?php comment_author_link(); ?><?php edit_comment_link( __( 'Edit', 'twitstrap' ), '<br /><span class="pull-right"><small>', ' </small><i class="icon-edit"></i></span>' ); ?>
         </div>
       </small>
