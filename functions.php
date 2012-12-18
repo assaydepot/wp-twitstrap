@@ -160,11 +160,11 @@ function cleaner_caption( $output, $attr, $content ) {
     switch (esc_attr($attr['align'])) {
         case 'alignleft':
             $div_align = 'pull-left';
-            $div_margin = '0 5px 5px 0';
+            $div_margin = '0 10px 5px 0';
             break;
         case 'alignright':
             $div_align = 'pull-right';
-            $div_margin = '0 0 5px 5px';
+            $div_margin = '0 0 5px 10px';
             break;
         case 'aligncenter':
             $div_align = 'pull-center';
