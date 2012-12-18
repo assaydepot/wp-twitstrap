@@ -51,15 +51,18 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span ?>">
-            <p>
-              <?php
-              if ($i == 0 && get_query_var('paged') <= 1) {
-                  the_content();
-              } else {
-                  the_excerpt();
-              }
-              ?>
-            </p>
+            <?php
+            if ($i == 0 && get_query_var('paged') <= 1) {
+                the_content();
+            } else {
+                the_excerpt();
+            ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="pull-right">
+              Read More...
+            </a>
+            <?php
+            }
+            ?>
           </div>
         </div>
         <div class="row">
