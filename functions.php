@@ -152,16 +152,37 @@ function cleaner_caption( $output, $attr, $content ) {
     $attr = shortcode_atts( $defaults, $attr );
 
     // If the width is less than 1 or there is no caption, return the content between [caption] tags
-    if (1 > $attr['width'] || empty($attr['caption']))
+    if (1 > $attr['width'] || empty($attr['caption'])) {
         return $content;
+    }
+
+    // Assign the appropriate bootstrap alignment class based on alignment
+    switch (esc_attr($attr['align'])) {
+        case 'alignleft':
+            $div_align = 'pull-left';
+            $div_margin = '0 5px 5px 0';
+            break;
+        case 'alignright':
+            $div_align = 'pull-right';
+            $div_margin = '0 0 5px 5px';
+            break;
+        case 'aligncenter':
+            $div_align = 'pull-center';
+            $div_margin = '0 auto 5px';
+            break;
+        case 'alignnone':
+            $div_align = 'alignnone';
+            $div_margin = '0 0 5px 0';
+            break;
+    }
 
     // Set up the attributes for the caption <div>
     $attributes = (!empty( $attr['id']) ? ' id="' . esc_attr($attr['id']) . '"' : '' );
-    $attributes .= ' class="caption thumbnail ' . esc_attr($attr['align']) . '"';
+    $attributes .= ' class="caption thumbnail ' . $div_align . '"';
 
-    $div_width = esc_attr($attr['width']) + 10;
+    $div_width = esc_attr($attr['width']) + 2;
     // Open the caption <div>.
-    $output = '<div' . $attributes .' style="max-width: 98%; width: '.$div_width.'px; margin-bottom: 5px">';
+    $output = '<div' . $attributes .' style="max-width: 98%; width: '.$div_width.'px; margin: '.$div_margin.';">';
 
     // Allow shortcodes for the content the caption was created for.
     $output .= do_shortcode( $content );
