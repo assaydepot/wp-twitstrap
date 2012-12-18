@@ -157,11 +157,11 @@ function cleaner_caption( $output, $attr, $content ) {
 
     // Set up the attributes for the caption <div>
     $attributes = (!empty( $attr['id']) ? ' id="' . esc_attr($attr['id']) . '"' : '' );
-    $attributes .= ' class="caption ' . esc_attr($attr['align']) . '"';
+    $attributes .= ' class="caption thumbnail ' . esc_attr($attr['align']) . '"';
 
     $div_width = esc_attr($attr['width']) + 10;
     // Open the caption <div>.
-    $output = '<div class="thumbnail" style="max-width: 100%; width: '.$div_width.'px"><div' . $attributes .'>';
+    $output = '<div' . $attributes .' style="max-width: 98%; width: '.$div_width.'px; margin-bottom: 5px">';
 
     // Allow shortcodes for the content the caption was created for.
     $output .= do_shortcode( $content );
@@ -170,7 +170,7 @@ function cleaner_caption( $output, $attr, $content ) {
     $output .= '<small>' . $attr['caption'] . '</small>';
 
     // Close the caption </div>.
-    $output .= '</div></div>';
+    $output .= '</div>';
 
     // Return the formatted, clean caption.
     return $output;

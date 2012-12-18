@@ -128,3 +128,7 @@ li.widget {
     padding: 5px 10px !important;
     line-height: 16px !important;
 }
+
+.thumbnail img {
+    border: 1px solid #DDDDDD;
+}
