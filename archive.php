@@ -82,19 +82,21 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
                                            'total' => $wp_query->max_num_pages,
                                            'type' => 'array'
                                            ));
+        if (!empty($pagination)) {
         ?>
         <div class="pagination pagination-centered">
         <ul>
         <?php
-        foreach ($pagination as $page_number) {
-            $current_page = '<span class="page-numbers current">'.$paged.'</span>';
-            if (strlen($current_page) == strlen($page_number)) {
-                echo '<li class="active">';
-            } else {
-                echo '<li>';
+            foreach ($pagination as $page_number) {
+                $current_page = '<span class="page-numbers current">'.$paged.'</span>';
+                if (strlen($current_page) == strlen($page_number)) {
+                    echo '<li class="active">';
+                } else {
+                    echo '<li>';
+                }
+                echo $page_number;
+                echo '</li>';
             }
-            echo $page_number;
-            echo '</li>';
         }
         ?>
         </ul>
