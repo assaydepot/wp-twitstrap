@@ -10,7 +10,7 @@
     <?php wp_head(); ?>
 </head>
 
-<body <?php body_class(); ?>>
+<body itemscope itemprop="http://schema.org/Blog" <?php body_class(); ?>>
   <?php
   if ($twitstrap_options['twitstrap_header_menu'] == 1) {
   ?>
@@ -30,10 +30,12 @@
         <div class="row-fluid">
             <div class="page-header span12">
                 <h1>
-                    <a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name').' - '.get_bloginfo('description'); ?>" id="logo-link">
-                        <?php echo get_bloginfo('name') ?>
+                    <a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name').' - '.get_bloginfo('description'); ?>" id="logo-link" itemprop="url">
+                       <span itemprop="name">
+                           <?php echo get_bloginfo('name') ?>
+                       </span>
                     </a><br />
-                <small><?php echo get_bloginfo('description'); ?></small></h1>
+                <small itemprop="description"><?php echo get_bloginfo('description'); ?></small></h1>
             </div>
         </div>
       <?php

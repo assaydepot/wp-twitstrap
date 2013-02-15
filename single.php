@@ -19,15 +19,15 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
       <div class="span8">
     <?php } else { ?>
     <div class="row">
-      <div class="<?php echo $excerpt_span ?>">
+      <div class="<?php echo $excerpt_span ?>"  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <?php }
 
     while ( have_posts() ) : the_post(); ?>
         <div class="row">
           <div class="<?php echo $excerpt_span ?>">
             <h2>
-              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                <?php the_title(); ?>
+              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" itemprop="url">
+                <span itemprop="headline"><?php the_title(); ?></span>
               </a>
             </h2>
           </div>
@@ -35,20 +35,18 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
             <h6>
-              Posted <?php the_time(); ?>, <?php the_date(); ?><br />
-              Author: <?php the_author_link(); ?>
+              Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_date(); ?></span><br />
+              Author: <span itemprop="author"><?php the_author_link(); ?></span>
             </h6>
             <span class="pull-right">
-              <?php the_category(', '); ?>
+              <span itemprop="articleSection"><?php the_category('</span>, <span itemprop="articleSection">'); ?></span>
             </span>
             <hr style="margin: 8px 0 0;"/>
           </div>
         </div>
         <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <p>
-              <?php the_content(); ?>
-            </p>
+          <div class="<?php echo $excerpt_span; ?>" itemprop="articleBody">
+            <?php the_content(); ?>
           </div>
         </div>
         <div class="row">
@@ -63,10 +61,12 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         </div>
         <div class="row">
           <div class="<?php echo $excerpt_span; ?>">
-            <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
+            <?php the_tags('<h6>Tags:</h6> <span itemprop="keywords"><span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span></span>'); ?>
           </div>
         </div>
-        <?php comments_template('', true); ?>
+        <div itemprop="comments">
+          <?php comments_template('', true); ?>
+        </div>
     <?php endwhile; ?>
       </div>
 

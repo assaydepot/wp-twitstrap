@@ -40,47 +40,53 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 
     $i = 0;
     while ( have_posts() ) : the_post(); ?>
-        <div class="row">
-          <div class="<?php echo $excerpt_span ?>">
-            <h2>
-              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
-                <?php the_title(); ?>
+        <div itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+          <div class="row">
+            <div class="<?php echo $excerpt_span ?>">
+              <h2>
+                <a itemprop="url" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
+                  <span itemprop="headline"><?php the_title(); ?></span>
+                </a>
+              </h2>
+            </div>
+          </div>
+          <div class="row">
+            <div class="<?php echo $excerpt_span ?>">
+              <?php
+              if ($i == 0 && get_query_var('paged') <= 1) {
+                  echo '<span itemprop="articleBody">';
+                  the_content();
+                  echo '</span>';
+              } else {
+                  echo '<span itemprop="description">';
+                  the_excerpt();
+                  echo '</span>';
+              ?>
+              <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="pull-right">
+                Read More...
               </a>
-            </h2>
+              <?php
+              }
+              ?>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="<?php echo $excerpt_span ?>">
-            <?php
-            if ($i == 0 && get_query_var('paged') <= 1) {
-                the_content();
-            } else {
-                the_excerpt();
-            ?>
-            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="pull-right">
-              Read More...
-            </a>
-            <?php
-            }
-            ?>
+          <div class="row">
+            <div class="<?php echo $excerpt_span; ?>">
+              <?php the_tags('<h6>Tags:</h6> <span itemprop="keywords"><span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span></span>'); ?>
+              <span class="pull-right">
+              <h6><span itemprop="articleSection"><?php the_category('</span>, <span itemprop="articleSection">'); ?></span></h6>
+              </span>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
-            <span class="pull-right">
-            <h6><?php the_category(', '); ?></h6>
-            </span>
+          <div class="row">
+            <div class="<?php echo $excerpt_span; ?>">
+              <h6>Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_time(get_option('date_format')); ?></span></h6>
+            </div>
           </div>
-        </div>
-        <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <h6>Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></h6>
-          </div>
-        </div>
-        <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <hr />
+          <div class="row">
+            <div class="<?php echo $excerpt_span; ?>">
+              <hr />
+            </div>
           </div>
         </div>
     <?php $i++; ?>
