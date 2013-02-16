@@ -132,3 +132,13 @@ li.widget {
 .thumbnail img {
     border: 1px solid #DDDDDD;
 }
+
+ul.media-list li {
+    border-bottom: 1px dotted #DDDDDD;
+}
+
+ul.children li {
+    margin-left: 20px;
+    border-bottom: 0px;
+    border-top: 1px dotted #DDDDDD;
+}

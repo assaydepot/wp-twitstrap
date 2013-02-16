@@ -36,7 +36,7 @@ if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
   </ul>
   <?php endif;?>
 
-  <ul class="unstyled">
+  <ul class="media-list">
       <?php wp_list_comments(array('callback' => 'twitstrap_comment')); ?>
   </ul>
 
