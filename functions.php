@@ -92,7 +92,7 @@ function twitstrap_comment($comment, $args, $depth) {
             /* translators: 1: comment author, 2: date and time */
             printf( __( '%1$s on %2$s <span class="says">said:</span>', 'twitstrap' ),
                     sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
-                    sprintf( '<a href="%1$s"><time pubdate datetime="%2$s">%3$s</time></a>',
+                    sprintf( '<a href="%1$s"><time pubdate datetime="%2$s" itemprop="commentTime">%3$s</time></a>',
                              esc_url( get_comment_link( $comment->comment_ID ) ),
                              get_comment_time( 'c' ),
                              /* translators: 1: date, 2: time */
@@ -108,13 +108,13 @@ function twitstrap_comment($comment, $args, $depth) {
           <br />
         <?php endif; ?>
 
-        <div class="comment-content">
+        <div class="comment-content" itemprop="commentText">
           <?php comment_text(); ?>
         </div>
         <div class="clearfix">
           <span class="pull-right">
             <?php edit_comment_link( __( 'Edit <i class="icon-edit"></i>', 'twitstrap' ), '<small>', '</small>' ); ?>&nbsp;
-            <span class="reply btn btn-primary btn-small">
+            <span class="reply btn btn-primary btn-small" itemprop="replyToUrl">
               <?php echo comment_reply_link(array('reply_text' => 'Reply <i class="icon-comment icon-white"></i>', 'depth' => $depth, 'max_depth' => $args['max_depth'])); ?>
             </span><!-- .reply -->
           </span>

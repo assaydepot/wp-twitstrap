@@ -37,7 +37,7 @@ if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
   <?php endif;?>
 
   <ul class="media-list">
-      <?php wp_list_comments(array('callback' => 'twitstrap_comment')); ?>
+    <?php wp_list_comments(array('callback' => 'twitstrap_comment')); ?>
   </ul>
 
   <?php if (get_comment_pages_count() > 1 && get_option('page_comments')) : ?>
