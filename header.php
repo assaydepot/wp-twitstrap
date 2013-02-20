@@ -5,9 +5,16 @@
     <title><?php wp_title('|'); ?></title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo get_template_directory_uri(); ?>/style.php" rel="stylesheet" type="text/css" />
+    <?php
+    // Enable for pages with comments
+    if ( is_singular() && get_option( 'thread_comments' ) )
+        wp_enqueue_script( 'comment-reply' );
+
+    // call wp_head(), but do it before bootstrap so jQuery loads first
+    wp_head();
+    ?>
     <script src="<?php echo get_template_directory_uri(); ?>/js/bootstrap.min.js"></script>
     <script src="<?php echo get_template_directory_uri(); ?>/extra.js"></script>
-    <?php wp_head(); ?>
 </head>
 
 <body itemscope itemprop="http://schema.org/Blog" <?php body_class(); ?>>
