@@ -77,18 +77,19 @@ function twitstrap_comment($comment, $args, $depth) {
         default :
     ?>
     <li class="media" id="li-comment-<?php comment_ID(); ?>">
-      <span class="pull-left">
-      <?php
-        $avatar_size = 60;
-        if ( '0' != $comment->comment_parent )
-            $avatar_size = 32;
-
-        echo get_avatar( $comment, $avatar_size );
-      ?>
-      </span>
-      <div class="media-body">
-        <h6 class="media-heading comment-author vcard">
+      <article id="comment-<?php comment_ID(); ?>" class="comment">
+        <span class="pull-left">
         <?php
+          $avatar_size = 60;
+          if ( '0' != $comment->comment_parent )
+              $avatar_size = 32;
+
+          echo get_avatar( $comment, $avatar_size );
+        ?>
+        </span>
+        <div class="media-body">
+          <h6 class="media-heading comment-author vcard">
+          <?php
             /* translators: 1: comment author, 2: date and time */
             printf( __( '%1$s on %2$s <span class="says">said:</span>', 'twitstrap' ),
                     sprintf( '<span class="fn">%s</span>', get_comment_author_link() ),
@@ -101,26 +102,27 @@ function twitstrap_comment($comment, $args, $depth) {
                     );
             ?>
 
-        </h6><!-- .comment-author .vcard -->
+          </h6><!-- .comment-author .vcard -->
 
-        <?php if ( $comment->comment_approved == '0' ) : ?>
-          <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twitstrap' ); ?></em>
+          <?php if ( $comment->comment_approved == '0' ) : ?>
+            <em class="comment-awaiting-moderation"><?php _e( 'Your comment is awaiting moderation.', 'twitstrap' ); ?></em>
+            <br />
+          <?php endif; ?>
+
+          <div class="comment-content" itemprop="commentText">
+            <?php comment_text(); ?>
+          </div>
+          <div class="clearfix reply">
+            <span class="pull-right">
+              <?php edit_comment_link( __( 'Edit <i class="icon-edit"></i>', 'twitstrap' ), '<small>', '</small>' ); ?>&nbsp;
+              <span class="btn btn-primary btn-small" itemprop="replyToUrl">
+                <?php echo comment_reply_link(array('reply_text' => 'Reply <i class="icon-comment icon-white"></i>', 'depth' => $depth, 'max_depth' => $args['max_depth'])); ?>
+              </span><!-- .reply -->
+            </span>
+          </div>
           <br />
-        <?php endif; ?>
-
-        <div class="comment-content" itemprop="commentText">
-          <?php comment_text(); ?>
         </div>
-        <div class="clearfix">
-          <span class="pull-right">
-            <?php edit_comment_link( __( 'Edit <i class="icon-edit"></i>', 'twitstrap' ), '<small>', '</small>' ); ?>&nbsp;
-            <span class="reply btn btn-primary btn-small" itemprop="replyToUrl">
-              <?php echo comment_reply_link(array('reply_text' => 'Reply <i class="icon-comment icon-white"></i>', 'depth' => $depth, 'max_depth' => $args['max_depth'])); ?>
-            </span><!-- .reply -->
-          </span>
-        </div>
-        <br />
-      </div>
+      </article>
     <!-- #comment-## -->
 
     <?php

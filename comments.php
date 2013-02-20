@@ -7,7 +7,7 @@ if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
 }
 ?>
 
-<div class="row" id="comments">
+<div class="row" id="comments" style="margin-bottom: 10px;">
   <div class="<?php echo $excerpt_span; ?>">
   <?php if ( post_password_required() ) : ?>
     <p class="nopassword">
