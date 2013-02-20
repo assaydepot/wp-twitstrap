@@ -78,7 +78,7 @@ function twitstrap_comment($comment, $args, $depth) {
     ?>
     <li class="media" id="li-comment-<?php comment_ID(); ?>">
       <article id="comment-<?php comment_ID(); ?>" class="comment">
-        <span class="pull-left">
+        <span class="pull-left" style="margin-right: 10px;">
         <?php
           $avatar_size = 60;
           if ( '0' != $comment->comment_parent )
