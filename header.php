@@ -1,7 +1,9 @@
 <?php $twitstrap_options = twitstrap_get_global_options(); ?>
+<?php header('Content-type: text/html; charset=utf-8'); ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <title><?php wp_title('|'); ?></title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo get_template_directory_uri(); ?>/style.php" rel="stylesheet" type="text/css" />
@@ -17,7 +19,7 @@
     <script src="<?php echo get_template_directory_uri(); ?>/extra.js"></script>
 </head>
 
-<body itemscope itemprop="http://schema.org/Blog" <?php body_class(); ?>>
+<body itemscope itemtype="http://schema.org/Blog" <?php body_class(); ?>>
   <?php
   if ($twitstrap_options['twitstrap_header_menu'] == 1) {
   ?>
