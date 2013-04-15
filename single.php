@@ -1,12 +1,11 @@
 <?php get_header(); ?>
 
 <?php
-if ($twitstrap_options['twitstrap_static'] != 1) {
-    if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
-        $excerpt_span = 'span8';
-    } else {
-        $excerpt_span = 'span12';
-    }
+if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
+    $excerpt_span = 'span8';
+} else {
+    $excerpt_span = 'span12';
+}
 ?>
 <div class="container">
   <?php if ( have_posts() ) { ?>
@@ -19,12 +18,12 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
       <div class="span8">
     <?php } else { ?>
     <div class="row">
-      <div class="<?php echo $excerpt_span ?>"  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="<?php echo $excerpt_span; ?>"  itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
     <?php }
 
     while ( have_posts() ) : the_post(); ?>
         <div class="row">
-          <div class="<?php echo $excerpt_span ?>">
+          <div class="<?php echo $excerpt_span; ?>">
             <h2>
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" itemprop="url">
                 <span itemprop="headline"><?php the_title(); ?></span>
@@ -36,7 +35,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
           <div class="<?php echo $excerpt_span; ?>">
             <h6>
               Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_date(); ?></span><br />
-              Author: <span itemprop="author"><?php the_author_link(); ?></span>
+              Author: <span itemprop="author"><?php the_author_posts_link(); ?></span>
             </h6>
             <span class="pull-right">
               <span itemprop="articleSection"><?php the_category('</span>, <span itemprop="articleSection">'); ?></span>
@@ -91,6 +90,5 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 
   <?php } ?>
 </div>
-<?php } ?>
 
 <?php get_footer(); ?>
