@@ -37,7 +37,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
             </a><br />
             Email: <a href="mailto:<?php echo $curauth->user_email; ?>" itemprop="email"><?php echo $curauth->user_email; ?></a>
           </h6><br /><br />
-          <?php echo $curauth->user_description; ?><br />
+          <?php echo $curauth->user_description; ?>
           <hr />
           <h3>Read Posts By <?php echo $curauth->display_name; ?></h3>
           <hr />
