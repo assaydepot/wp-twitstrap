@@ -4,35 +4,32 @@ Template Name: Search Page
 */
 
 get_header();
-?>
 
-<?php
-if ($twitstrap_options['twitstrap_static'] != 1) {
-    if ($twitstrap_options['twitstrap_page_sidebar'] != 'none') {
-        $excerpt_span = 'span8';
-    } else {
-        $excerpt_span = 'span12';
-    }
+if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
+    $excerpt_span = 'col-md-8 col-sm-7 col-xs-12';
+} else {
+    $excerpt_span = 'col-md-12';
+}
 ?>
 <div class="container">
   <?php if ( have_posts() ) { ?>
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       <h2>Search Results for "<?php echo get_search_query(); ?>"</h2>
     </div>
   </div>
   <div class="row">
-    <div class="span12">
+    <div class="col-md-12">
       <?php get_search_form(); ?>
     </div>
   </div>
 
-    <?php if ($twitstrap_options['twitstrap_page_sidebar'] == 'left') { ?>
+    <?php if ($twitstrap_options['twitstrap_post_sidebar'] == 'left') { ?>
     <div class="row">
-      <div class="span4">
+      <div class="col-md-4 col-sm-5 col-xs-4">
         <?php get_sidebar(); ?>
       </div>
-      <div class="span8">
+      <div class="<?php echo $excerpt_span; ?>">
     <?php } else { ?>
     <div class="row">
       <div class="<?php echo $excerpt_span ?>">
@@ -40,7 +37,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 
     while ( have_posts() ) : the_post(); ?>
         <div class="row">
-          <div class="<?php echo $excerpt_span ?>">
+          <div class="col-md-12">
             <h2>
               <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                 <?php the_title(); ?>
@@ -49,30 +46,46 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
           </div>
         </div>
         <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <p>
-              <?php the_excerpt(); ?>
-            </p>
+          <div class="col-md-12">
+          <?php
+              echo '<span itemprop="description">';
+              the_excerpt();
+              echo '</span>';
+          ?>
+            <a href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>" class="pull-right">
+              Read More...
+            </a>
           </div>
         </div>
         <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <?php the_tags('<h6>Tags:</h6> <span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span>'); ?>
+          <div class="col-md-12">
             <span class="pull-right">
-            <h6><?php the_category(', '); ?></h6>
+              <h6><span itemprop="articleSection" class="badge"><?php the_category('</span> <span itemprop="articleSection" class="badge">'); ?></span></h6>
             </span>
           </div>
         </div>
         <div class="row">
-          <div class="<?php echo $excerpt_span; ?>">
-            <h6>Posted <?php the_time(); ?>, <?php the_time(get_option('date_format')); ?></h6>
+          <div class="col-md-12">
+            <span class="pull-right">
+              <h6>Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_time(get_option('date_format')); ?></span></h6>
+            </span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <?php the_tags('<h6>Tags:</h6> <span itemprop="keywords"><small>', ', ', '</small></span>'); ?>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <hr />
           </div>
         </div>
     <?php endwhile; ?>
       </div>
 
-    <?php if ($twitstrap_options['twitstrap_page_sidebar'] == 'right') { ?>
-      <div class="span4">
+    <?php if ($twitstrap_options['twitstrap_post_sidebar'] == 'right') { ?>
+      <div class="col-md-4 col-sm-5 col-xs-12">
         <?php get_sidebar(); ?>
       </div>
     <?php } ?>
@@ -90,8 +103,7 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
                                            ));
         if (!empty($pagination)) {
         ?>
-        <div class="pagination pagination-centered">
-        <ul>
+        <ul class="pagination">
         <?php
             foreach ($pagination as $page_number) {
                 $current_page = '<span class="page-numbers current">'.$paged.'</span>';
@@ -106,7 +118,6 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
         }
         ?>
         </ul>
-        </div>
         <hr />
       </div>
     </div>
@@ -125,6 +136,5 @@ if ($twitstrap_options['twitstrap_static'] != 1) {
 
   <?php } ?>
 </div>
-<?php } ?>
 
 <?php get_footer(); ?>

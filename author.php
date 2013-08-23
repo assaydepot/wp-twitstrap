@@ -2,34 +2,31 @@
 
 <?php
 if ($twitstrap_options['twitstrap_post_sidebar'] != 'none') {
-    $excerpt_span = 'span8';
+    $excerpt_span = 'col-md-8 col-sm-7 col-xs-12';
 } else {
-    $excerpt_span = 'span12';
+    $excerpt_span = 'col-md-12';
 }
 
 // Get the author to be viewed.
 $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : get_userdata(intval($author));
 ?>
-<!--<pre>
-  <?php print_r($curauth); ?>
-</pre>-->
 <div class="container">
   <?php if ($twitstrap_options['twitstrap_post_sidebar'] == 'left') { ?>
   <div class="row">
-    <div class="span4">
+    <div class="col-md-4 col-sm-5 col-xs-4">
       <?php get_sidebar(); ?>
     </div>
-    <div class="span8">
+    <div class="<?php echo $excerpt_span; ?>">
   <?php } else { ?>
   <div class="row">
     <div class="<?php echo $excerpt_span; ?>"  itemprop="blogPost" itemscope itemtype="http://schema.org/Person">
   <?php } ?>
       <div class="row">
-        <div class="<?php echo $excerpt_span; ?>">
+        <div class="col-md-12">
           <h2>
             <a href="" title="<?php echo $curauth->display_name; ?>'s Profile" itemprop="url">
               Author Profile: <span itemprop="name"><?php echo $curauth->display_name; ?></span>
-            </a>
+</a>
           </h2>
           <h6>
             <a href="<?php echo $curauth->user_url; ?>" title="<?php echo $curauth->user_url; ?>">
@@ -45,7 +42,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
             while ( have_posts() ) : the_post(); ?>
               <div itemprop="blogPost" itemscope itemtype="http://schema.org/BlogPosting">
                 <div class="row">
-                  <div class="<?php echo $excerpt_span ?>">
+                  <div class="col-md-12">
                     <h3>
                       <a itemprop="url" href="<?php the_permalink(); ?>" title="<?php the_title_attribute(); ?>">
                         <span itemprop="headline"><?php the_title(); ?></span>
@@ -54,7 +51,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
                   </div>
                 </div>
                 <div class="row">
-                  <div class="<?php echo $excerpt_span ?>">
+                  <div class="col-md-12">
                 <?php
                     echo '<span itemprop="description">';
                     the_excerpt();
@@ -66,20 +63,26 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
                   </div>
                 </div>
                 <div class="row">
-                  <div class="<?php echo $excerpt_span; ?>">
-                    <?php the_tags('<h6>Tags:</h6> <span itemprop="keywords"><span class="badge badge-info">', '</span> <span class="badge badge-info">', '</span></span>'); ?>
+                  <div class="col-md-12">
                     <span class="pull-right">
-                      <h6><span itemprop="articleSection"><?php the_category('</span>, <span itemprop="articleSection">'); ?></span></h6>
+                      <h6><span itemprop="articleSection" class="badge"><?php the_category('</span> <span itemprop="articleSection" class="badge">'); ?></span></h6>
                     </span>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="<?php echo $excerpt_span; ?>">
-                    <h6>Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_time(get_option('date_format')); ?></span></h6>
+                  <div class="col-md-12">
+                    <span class="pull-right">
+                      <h6>Posted <?php the_time(); ?>, <span itemprop="datePublished"><?php the_time(get_option('date_format')); ?></span></h6>
+                    </span>
                   </div>
                 </div>
                 <div class="row">
-                  <div class="<?php echo $excerpt_span; ?>">
+                  <div class="col-md-12">
+                    <?php the_tags('<h6>Tags:</h6> <span itemprop="keywords"><small>', ', ', '</small></span>'); ?>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
                     <hr />
                   </div>
                 </div>
@@ -91,7 +94,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
 
       </div>
     <?php if ($twitstrap_options['twitstrap_main_sidebar'] == 'right') { ?>
-      <div class="span4">
+      <div class="col-md-4 col-sm-5 col-xs-12">
         <?php get_sidebar(); ?>
       </div>
     <?php } ?>
@@ -109,8 +112,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
                                          ));
         if (!empty($pagination)) {
         ?>
-        <div class="pagination pagination-centered">
-          <ul>
+        <ul class="pagination">
           <?php
             foreach ($pagination as $page_number) {
                 $current_page = '<span class="page-numbers current">'.$paged.'</span>';
@@ -122,8 +124,7 @@ $curauth = (isset($_GET['author_name'])) ? get_user_by('slug', $author_name) : g
                 echo $page_number;
                 echo '</li>';
             } ?>
-          </ul>
-        </div>
+        </ul>
         <hr />
         <?php } ?>
       </div>

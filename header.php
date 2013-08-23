@@ -4,6 +4,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php wp_title('|'); ?></title>
     <link href="<?php echo get_template_directory_uri(); ?>/css/bootstrap.min.css" rel="stylesheet" />
     <link href="<?php echo get_template_directory_uri(); ?>/style.php" rel="stylesheet" type="text/css" />
@@ -23,21 +24,19 @@
   <?php
   if ($twitstrap_options['twitstrap_header_menu'] == 1) {
   ?>
-    <div class="navbar navbar-fixed-top">
-        <div class="navbar-inner">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
             <?php $args = array(
                       'theme_location'  => 'header_nav',
-                      'menu_class'      => 'nav nav-collapse pull-right',
-                      'items_wrap'      => '<ul class="%2$s">%3$s</ul>',
+                      'container'       => false,
+                      'items_wrap'      => '<ul class="%2$s nav navbar-nav pull-right">%3$s</ul>',
             ); ?>
             <?php wp_nav_menu( $args ); ?>
-        </div>
-    </div>
+    </nav>
   <?php } ?>
 
     <div class="container">
-        <div class="row-fluid">
-            <div class="page-header span12">
+        <div class="row">
+            <div class="page-header col-md-12 col-sm-12">
                 <h1>
                     <a href="<?php echo home_url(); ?>" title="<?php echo get_bloginfo('name').' - '.get_bloginfo('description'); ?>" id="logo-link" itemprop="url">
                        <span itemprop="name">
